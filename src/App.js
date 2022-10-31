@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Board from "./components/Board"
+import Options from "./components/Options"
+
+import computer from './assets/computer.png'
+import playericon from './assets/playericon.png'
+import settings from './assets/settings.png'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* <Options playericon={playericon} computer={computer} settings={settings}/> */}
+      <Board position="start"/>
     </div>
   );
 }

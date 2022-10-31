@@ -1,0 +1,73 @@
+#board {
+    width: 775px;
+    height: 645px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+
+
+}
+
+.heading {
+    color: whitesmoke;
+    text-align: center;
+}
+
+#lionText {
+    color: orange;
+}
+
+#sheepText {
+    color: gray;
+}
+
+.white {
+    color: whitesmoke;
+    text-align: center;
+}
+
+
+
+.tile {
+    width: 75px;
+    height: 75px;
+    margin: 25px;
+    /* width: 125px;
+    height: 125px; */
+    background-color: white;
+    border-radius: 50%;
+}
+.tile:hover {
+    width: 85px;
+    height: 85px;
+    margin: 20px;
+    /* width: 125px;
+    height: 125px; */
+    border-radius: 50%;
+}
+
+#a1 {
+    grid-column-start: 4;
+    grid-column-end: span 3;
+}
+#b1 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+
+
+}
+
+#e1 {
+    grid-column-start: 2;
+}
+
+.lion {
+    background-color: orange;
+}
+.sheep {
+    background-color: gray;
+
+}
+
