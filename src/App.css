@@ -2,6 +2,40 @@
   display: grid;
   place-content: center;
   height: 100vh;
-  background-color: #202020;
+  background-color: #090909;
+  overflow: scroll;
 
+}
+
+.close {
+  margin-left: 460px;
+  font-size: 45px;
+  font-weight: 200;
+  display: inline-block;
+  transform: rotate(45deg);
+  color: whitesmoke;
+}
+.close:hover {
+  color: gray;
+}
+
+#summary {
+  color: white;
+}
+#ligerrBoard {
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+#heading {
+  color: white;
+  text-align: center;
+}
+.popup {
+  background-color: #121213;
+  height: 750px;
+  width: 500px;
+  border-radius: 10px;
 }
