@@ -59,8 +59,8 @@ function App() {
   return (
     <div className="app">
       {/* <Options playericon={playericon} computer={computer} settings={settings}/> */}
-      <Rules />
-      {/* <Board position="start"/> */}
+      {/* <Rules /> */}
+      <Board position="start"/>
     </div>
   );
 }
