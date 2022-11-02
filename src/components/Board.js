@@ -35,7 +35,9 @@ export default function Board({ position }) {
     // }, [])
     useEffect(() => {
         addMove()
-        status()
+        if(lionCount >= 3 && sheepCount >= 6) {
+            status()
+        }
         console.log("what")
     }, [curFen])
 
