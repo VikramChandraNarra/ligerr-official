@@ -1,5 +1,6 @@
 import { isCursorAtEnd } from '@testing-library/user-event/dist/utils';
 import React, { Component, useState, useEffect } from 'react'
+import Moves from './Moves';
 import "./Board.css"
 
 const axis = ["a1", "b1", "b2", "b3", "b4", "b5", "b6", "c1", "c2", "c3", "c4", "c5", "c6", "d1", "d2", "d3", "d4", "d5", "d6", "e1", "e2", "e3", "e4"];
@@ -605,21 +606,29 @@ export default function Board({ position }) {
 
 
     return (
-        <>
-            <div className='heading'>
-                {/* this goes on top */}
-                {turn ? <h1 id="lionText">LIONS</h1> : <h1 id="sheepText">SHEEPS</h1>}
+        <div className='gameScreen'>
+            <div className='gameBoard'>
+                <div className='heading'>
+                    {/* this goes on top */}
+                    {turn ? <h1 id="lionText">LIONS</h1> : <h1 id="sheepText">SHEEPS</h1>}
+                </div>
+                <div id="board">
+                    {board}
+                </div>
+                <div>
+                    {/* This goes below */}
+                    {/* { moves.length > 1 && <button onClick={() => undoMove()}>Undo</button>} */}
+                    {/* { moves.length > 1 && <button>Redo</button>} */}
+                    {gameOver && <h1 className='white'>{winner + " win!"}</h1>}
+                </div>
+
             </div>
-            <div id="board">
-                {board}
-            </div>
-            <div>
-                {/* This goes below */}
-                { moves.length > 1 && <button onClick={() => undoMove()}>Undo</button>}
-                {/* { moves.length > 1 && <button>Redo</button>} */}
-                {gameOver && <h1 className='white'>{winner + " win!"}</h1>}
-            </div>
-        </>
+            {/* <h1 className='white'>Hello</h1> */}
+            <Moves moves={moves} turn={turn}/>
+
+
+
+        </div>
 
     )
 }

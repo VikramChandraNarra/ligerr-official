@@ -1,0 +1,45 @@
+.scoreCard {
+    height: 100%;
+    width: 400px;
+    background-color: #262422;
+    border-radius: 10px;
+    margin-left: 20px;
+    position: relative;
+}
+
+/* #turn {
+    margin-top: 100%;
+    color: white;
+} */
+
+/* .white {
+    color: green;
+} */
+
+#turn {
+    color: whitesmoke;
+    margin-left: 10px;
+    font-size: 15px;
+    text-decoration: underline;
+
+}
+
+#main {
+    background-color: #33302f;
+    border-style: none;
+    border-radius: 5px;
+    width: 30%;
+    height: 6%;
+    /* margin-left: 10px; */
+    position: absolute;
+    bottom: 10px;
+}
+.back {
+    margin-left: 3%;
+}
+.forward {
+    margin-left: 36%;
+}
+.plus {
+    margin-left: 69%;
+}

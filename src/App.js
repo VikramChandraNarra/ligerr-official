@@ -2,20 +2,34 @@ import logo from './logo.svg';
 import './App.css';
 import Board from "./components/Board"
 import Options from "./components/Options"
+import React, { useState, useEffect } from 'react'
+
+import Header from './components/Header'
 
 import ligerrBoard from './assets/ligerrBoard.png'
 import lambPiece from './assets/lambPiece.png'
 import tigerPiece from './assets/tigerPiece.png'
 
 
+
+
 function FirstRule() {
   return (
     <div className='firstRule'>
-      <img id="ligerrBoard" src={ligerrBoard} alt="" />
       <h1 id="heading">The Board</h1>
-      <p id="summary">The Board Resembles a Pyramid Architect, and the Hierarchy of the Jungle</p>
-      <img id="lambPiece" src={lambPiece} alt="" />
-      <img id="tigerPiece" src={tigerPiece} alt="" />
+      <img id="ligerrBoard" src={ligerrBoard} alt="" />
+      <p className="whiteText" id="summary">Ligerr is an Indian Inspired Board Game</p>
+      <h2 className="whiteText" id="rules">Rules</h2>
+      <p className="whiteText" id="placing">There are two teams, and they take turns placing</p>
+      <p className="whiteText" id="lambsRules">15 Lambs</p>
+      <p className="whiteText" id="tigersRules">3 Tigers</p>
+      <p className="whiteText" id="lambsObjective">Lamb's Objective: To Trap all the Tigers</p>
+      <p className="whiteText" id="tigersObjective">Tiger's Objective: To Kill 9 Lambs and Avoid Getting Trapped</p>
+      
+
+
+      {/* <img id="lambPiece" src={lambPiece} alt="" />
+      <img id="tigerPiece" src={tigerPiece} alt="" /> */}
       <p></p>
     </div>
   )
@@ -43,25 +57,28 @@ function ThirdRule() {
   )
 
 }
-function Rules() {
+
+function App() {
+  const [rulesClosed, setRulesClosed] = useState(false);
+
   return (
-    <div className='popup'>
+    <div className="app">
+      {/* <Header /> */}
+
+      {/* <Options playericon={playericon} computer={computer} settings={settings}/> */}
+      {/* <Rules /> */}
+      {/* {!rulesClosed && 
+      <div className='popup'>
       <div>
-        <span class="close">+</span>
+        <span class="close" onClick={() => setRulesClosed(true)}>+</span>
       </div>
       <div className='content'>
         <FirstRule />
       </div>
-    </div>
-  )
-}
-function App() {
-  return (
-    <div className="app">
-
-      {/* <Options playericon={playericon} computer={computer} settings={settings}/> */}
-      {/* <Rules /> */}
-      <Board position="start"/>
+    </div>      
+    } */}
+    {/* {rulesClosed && <Board position="start"/>} */}
+    <Board position="start"/>
     </div>
   );
 }

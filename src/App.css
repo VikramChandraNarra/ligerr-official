@@ -1,10 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap');
+
+* {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 .app {
   display: grid;
   place-content: center;
   height: 100vh;
-  background-color: #090909;
+  background-color: #302f2a;
   overflow: scroll;
 
+}
+
+.firstRule {
+  margin-left: 10px;
+}
+
+.whiteText {
+  color: white;
 }
 
 .close {
@@ -35,7 +50,10 @@
 }
 .popup {
   background-color: #121213;
+  border-color: rgb(52, 51, 51);
+  border-radius: 0.5px;
+  border-style: solid;
   height: 750px;
-  width: 500px;
+  width: 100%;
   border-radius: 10px;
 }
