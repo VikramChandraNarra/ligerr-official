@@ -10,7 +10,7 @@ export default function Board({ position }) {
     
     const [secondClick, setSecondClick] = useState(false);
     const [pastPosition, setPastPosition] = useState();
-    const [curFen, setCurFen] = useState();
+    const [curFen, setCurFen] = useState("");
     const [moves, setMoves] = useState([]);
     const [lionCount, setLionCount] = useState(0);
     const [sheepCount, setSheepCount] = useState(0);
@@ -19,9 +19,6 @@ export default function Board({ position }) {
     const [winner, setWinner] = useState()
     const [killed, setKilled] = useState(0);
 
-    const handleClick = (move) => {
-        setMoves(moves => [...moves, move])
-    }
     const addMove = () => {
         setMoves([...moves, {
             fen: curFen,
@@ -30,17 +27,23 @@ export default function Board({ position }) {
             turn: turn,
         }])
     }
-    // useEffect(() => {
-    //     addMove()
-    //     console.log(moves)
-    // }, [])
+
     useEffect(() => {
         addMove()
         if(lionCount >= 3 && sheepCount >= 6) {
             status()
         }
-        console.log("what")
+        // console.log(moves)
+
     }, [curFen])
+
+    useEffect(() => {
+        if (curFen != updateFen) {
+            setCurFen(updateFen)
+
+        }
+    })
+
 
 
     
@@ -64,7 +67,7 @@ export default function Board({ position }) {
 
         // 1 - True
         // 0 - False
-        console.log(arrayBoard)
+        // console.log(arrayBoard)
         var isValid = 0;
         if (x - 1 >= 0 && y - 1 >= 0 && x + 1 <= 5 && y + 1 <= 4) {
             if (arrayBoard[y][x-1] == 'E' || arrayBoard[y][x+1] == 'E' || arrayBoard[y-1][x] == 'E' || arrayBoard[y+1][x] == 'E') {
@@ -114,56 +117,13 @@ export default function Board({ position }) {
         
         return isValid
 
-
-   
-
-        // for (var i=-1; i<2; i+=2)// Horizontal Entries
-        // {
-        //    if (x + i >= 0 && x + i <= 5 && arrayBoard[y][x+i] == "E")
-        //    {
-        //       isValid = 1;
-        //    }
-        // }
-        // for (var j=-1; j<2; j+=2)// Vertial Entries
-        // {
-     
-     
-        //    if (y == 1)
-        //    {
-        //       // Unique Case y = 1
-        //       if (x == 0)
-        //       {
-        //          if (arrayBoard[y][x+1] == "E" || arrayBoard[y-1][x] == "E")
-        //          {
-        //             isValid = 1;
-        //          }
-        //       }else if (x == 5){
-        //          if (arrayBoard[y][x-1] == "E" || arrayBoard[y-1][x] == "E")
-        //          {
-        //             isValid = 1;
-        //          }
-     
-        //       }else {
-        //          if (arrayBoard[0][2] == "E" || arrayBoard[y-1][x] == "E")
-        //          {
-        //             isValid = 1;
-        //          }
-        //       }
-        //    }
-     
-        //    if (x + j >= 1 && x + j <= 5 && arrayBoard[y+j][x] == "E")
-        //    {
-        //       isValid = 1;
-        //    }
-        // }
-        // return isValid;
-     
-     }
+    }
 
     const status = () => {
     
         var temp = statusOfGame(convertToReadable(curFen))
-        console.log("temp " + temp)
+        
+        // console.log("temp " + temp)
         if (temp == 1) {
             //Lions
             setGameOver(true)
@@ -190,10 +150,12 @@ export default function Board({ position }) {
 
               if (arrayBoard[i][j] == "L")
               {
+                // console.log("detected")
                  noOfTigers++;
-                 console.log("testing " + availableMove(arrayBoard, i, j))
+                //  console.log("testing " + availableMove(arrayBoard, i, j))
                  if (availableMove(arrayBoard, i, j) == 0)
                  {
+                    console.log(i, j)
                     
                     numberOfTigersTrapper++;
                  }
@@ -528,19 +490,21 @@ export default function Board({ position }) {
     }
 
     const move = ( target ) => {
+        // console.log(moves)
+
 
         if (lionCount == 3 && turn == true) { //Means that the Lions must start sliding 
 
             if (secondClick == false && target.className == "tile lion") {  // First Click for moving the lion
-                console.log("first click lion")
+                // console.log("first click lion")
                 setSecondClick(true);
                 setPastPosition(target)
             } else if (secondClick == true && target.className == "tile lion") { // Updating the lion that needs to be moved
-                console.log("updating first move")
+                // console.log("updating first move")
                 setPastPosition(target)
 
             } else if ((target.className == "tile sheep" || target.className == "tile") && pastPosition != undefined && pastPosition.className != "tile lion") { // Not valid
-                console.log("not valid click")
+                // console.log("not valid click")
 
             } else {    //Valid Click
                 if (target.className == "tile" && pastPosition != undefined && pastPosition.className == "tile lion" && secondClick == true) {
@@ -549,28 +513,28 @@ export default function Board({ position }) {
                         setPastPosition(null)
                         setSecondClick(false)
                         setTurn(!turn)
-                        setCurFen(updateFen())
+                        // setCurFen(updateFen())
 
 
-                        console.log("second click succesfull")
+                        // console.log("second click succesfull")
                     } else {
-                        console.log("incorrect move lion")
+                        // console.log("incorrect move lion")
                     }
                 }
             }
         } else if (sheepCount >= 15 && turn == false ) {    // Means that the sheep must start sliding
             if (secondClick == false && target.className == "tile sheep") {
-                console.log("first clik")
+                // console.log("first clik")
                 setSecondClick(true);
                 setPastPosition(target)
 
             } else if (secondClick == true && target.className == "tile sheep") {
-                console.log("updating sheep first move")
+                // console.log("updating sheep first move")
                 setPastPosition(target)
 
             }
             else if ((target.className == "tile lion" || target.className == "tile") && pastPosition != undefined && pastPosition.className != "tile sheep") {
-                console.log("not valid click")
+                // console.log("not valid click")
 
             } else {
                 if (target.className == "tile" && pastPosition != undefined && pastPosition.className == "tile sheep" && secondClick == true) {
@@ -578,11 +542,11 @@ export default function Board({ position }) {
                         setPastPosition(null)
                         setSecondClick(false)
                         setTurn(!turn)
-                        setCurFen(updateFen())
+                        // setCurFen(updateFen())
 
-                        console.log("second click sheep")
+                        // console.log("second click sheep")
                     } else {
-                        console.log("incorrect click")
+                        // console.log("incorrect click")
                     }
                 }    
             }
@@ -594,14 +558,20 @@ export default function Board({ position }) {
                 if (turn == true) {
                     target.className = "tile lion"
                     setLionCount(lionCount + 1)
-                    setCurFen(updateFen())
+                    // setCurFen(updateFen())
                 } else {
                     target.className = "tile sheep"
                     setSheepCount(sheepCount + 1)
-                    setCurFen(updateFen())
+                    // setCurFen(updateFen())
                 }
             }
         }
+        // console.log("before" + curFen)
+
+        // console.log("now" + updateFen())
+        // // setCurFen(updateFen())
+        // console.log("new" + curFen)
+        
     }
 
 
@@ -612,8 +582,9 @@ export default function Board({ position }) {
                     {/* this goes on top */}
                     {turn ? <h1 id="lionText">LIONS</h1> : <h1 id="sheepText">SHEEPS</h1>}
                 </div>
+                {board[0]}
                 <div id="board">
-                    {board}
+                    {board.slice(1)}
                 </div>
                 <div>
                     {/* This goes below */}
@@ -623,7 +594,6 @@ export default function Board({ position }) {
                 </div>
 
             </div>
-            {/* <h1 className='white'>Hello</h1> */}
             <Moves moves={moves} turn={turn}/>
 
 

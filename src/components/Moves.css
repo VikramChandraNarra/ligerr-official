@@ -1,12 +1,45 @@
 .scoreCard {
     height: 100%;
-    width: 400px;
+    width: 500px;
     background-color: #262422;
     border-radius: 10px;
     margin-left: 20px;
     position: relative;
 }
 
+.moves {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.unitonMove {
+    display: flex;
+}
+
+.num {
+    flex: 1;
+}
+.fen {
+    flex: 10;
+}
+#true {
+    margin-left: 10px;
+    width: 90%;
+    text-align: center;
+    color: orange;
+    font-weight: 500;
+}
+
+
+
+
+
+#false {
+    margin-left: 10px;
+    
+    width: 90%;
+    text-align: center;
+    color: gray;
+}
 /* #turn {
     margin-top: 100%;
     color: white;

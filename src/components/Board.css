@@ -1,15 +1,18 @@
 #board {
-    width: 775px;
-    height: 645px;
+    width: 750px;
+    height: 500px;
     display: grid;
     grid-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 
 
 
 }
 
+.gameBoard {
+    margin-right: 10%;
+}
 
 .gameScreen {
     display: flex;
@@ -58,12 +61,12 @@
 }
 
 #a1 {
-    grid-column-start: 4;
-    grid-column-end: span 3;
+    margin: auto;
+    margin-bottom: 25px;
 }
 #b1 {
-    grid-column-start: 1;
-    grid-row-start: 2;
+    /* grid-column-start: 1;
+    grid-row-start: 2; */
 
 
 }
