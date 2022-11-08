@@ -6,7 +6,7 @@ export default function Moves(props) {
     for (let i=1; i<props.moves.length;i++) {
         movesData.push(
             <div key={props.moves[i].fen} className='unitonMove' id={props.moves[i].turn ? "true" : "false"}>
-                <h4 className='num'>{`${i})`}</h4>
+                <h4 className='num'>{`${i}.`}</h4>
                 <h3 className='fen'>{props.moves[i].fen}</h3>
             </div>
         )
@@ -43,7 +43,7 @@ export default function Moves(props) {
 
     return (
         <div className="scoreCard">
-            {props.turn ? <p id='turn'>Tiger's Turn</p> : <p id='turn'>Lamb's Turn</p>}
+            {props.turn ? <p className='lionText' id='turn'>Tiger's Turn</p> : <p className='sheepText' id='turn'>Lamb's Turn</p>}
             {/* {console.log(renderMoves)} */}
     
             <div className='moves'>
