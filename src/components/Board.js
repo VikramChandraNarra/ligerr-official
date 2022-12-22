@@ -575,6 +575,11 @@ export default function Board({ position }) {
     }
 
 
+    
+
+
+
+
     return (
         <div className='gameScreen'>
             <div className='gameBoard'>

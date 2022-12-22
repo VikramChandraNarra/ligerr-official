@@ -16,6 +16,7 @@
 
 .gameScreen {
     display: flex;
+    
     justify-content: center;
     /* align-items: center; */
 }
@@ -61,14 +62,16 @@
 }
 
 #a1 {
-    margin: auto;
-    margin-bottom: 25px;
+    position: relative;
+
+    left: 45%;
 }
+
+
+
 #b1 {
     /* grid-column-start: 1;
     grid-row-start: 2; */
-
-
 }
 
 #e1 {
